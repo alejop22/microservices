@@ -18,6 +18,7 @@
     <module>service-gateway</module>
     <module>service-eureka</module>
     <module>service-config</module>
+    <module>service-student</module>
   </modules>
 
   <properties>
