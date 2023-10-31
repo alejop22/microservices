@@ -1,0 +1,17 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: msvc-eureka
+  config:
+    import: optional:configserver:http://localhost:8888
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false # Para que EUREKA no se registre asi mismo
+    fetch-registry: false
+    server-url:
+      defaultZone: http://localhost:${server.port}/eureka/ # Este es el path con el que funcionará el server de EUREKA
