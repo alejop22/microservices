@@ -1,5 +1,6 @@
 package com.microservice.course.controller;
 
+import com.microservice.course.http.response.StudentByCourseResponse;
 import com.microservice.course.persistence.entity.Course;
 import com.microservice.course.service.ICourseService;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,11 @@ public class CourseController {
     @GetMapping("/all")
     public ResponseEntity<List<Course>> findAll() {
         return ResponseEntity.ok(this.courseService.findAll());
+    }
+
+    @GetMapping("/search-students/{idCourse}")
+    public ResponseEntity<StudentByCourseResponse> findStudentsByIdCourse(@PathVariable Long idCourse){
+        return ResponseEntity.ok(this.courseService.findStudentsByIdCourse(idCourse));
     }
 
 }
