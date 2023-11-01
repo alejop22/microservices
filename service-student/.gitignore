@@ -33,4 +33,4 @@ build/
 .vscode/
 
 # VOLUMES DB
-./mysql_data
+mysql_data/
