@@ -21,15 +21,18 @@ public class StudentController {
     public ResponseEntity<Student> saveStudent(@RequestBody Student student) {
         return ResponseEntity.status(HttpStatus.CREATED).body(this.studentService.save(student));
     }
-
     @GetMapping("/all")
     public ResponseEntity<List<Student>> findAllStudents() {
         return ResponseEntity.ok(this.studentService.findAll());
     }
-
     @GetMapping("/search/{id}")
     public ResponseEntity<Student> findById(@PathVariable Long id) {
         return ResponseEntity.ok(this.studentService.findById(id));
+    }
+
+    @GetMapping("/search-by-course/{idCourse}")
+    public ResponseEntity<List<Student>> findByIdCourse(@PathVariable Long idCourse) {
+        return ResponseEntity.ok(this.studentService.findByIdCourse(idCourse));
     }
 
 }
