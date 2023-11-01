@@ -19,6 +19,7 @@
     <module>service-eureka</module>
     <module>service-config</module>
     <module>service-student</module>
+    <module>service-course</module>
   </modules>
 
   <properties>
