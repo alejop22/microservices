@@ -10,9 +10,11 @@ import java.util.List;
 public class StudentServiceImpl implements IStudentService {
 
     private final StudentRepository studentRepository;
+    private final IStudentEventsService studentEventsService;
 
-    public StudentServiceImpl(StudentRepository studentRepository) {
+    public StudentServiceImpl(StudentRepository studentRepository, IStudentEventsService studentEventsService) {
         this.studentRepository = studentRepository;
+        this.studentEventsService = studentEventsService;
     }
 
     @Override
@@ -31,7 +33,8 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public List<Student> findByIdCourse(Long id) {
-        return this.studentRepository.findAllByCourseId(id);
+    public void findByIdCourse(Long id) {
+        List<Student> students = this.studentRepository.findAllByCourseId(id);
+        this.studentEventsService.publish(students);
     }
 }
