@@ -14,6 +14,8 @@ spring:
       ddl-auto: create
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
+  kafka:
+    bootstrapServers: localhost:9092
 
 # Para registrar este microservicio en EUREKA
 eureka:
